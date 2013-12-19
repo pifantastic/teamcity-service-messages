@@ -36,7 +36,7 @@ Outputs:
 
 ## TODO
 
-Sugar for specific messages types.
+* Sugar for specific messages types.
 
 ## License
 

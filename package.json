@@ -1,0 +1,14 @@
+{
+  "name": "teamcity-service-messages",
+  "version": "0.0.0",
+  "description": "Generate TeamCity service messages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit tests"
+  },
+  "keywords": [
+    "teamcity"
+  ],
+  "author": "Aaron Forsander",
+  "license": "WTFPL"
+}

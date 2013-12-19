@@ -34,6 +34,10 @@ Outputs:
 ##teamcity[testStarted name='my test' flowId='023565345909446478' timestamp='2013-12-19T19:54:24.449Z']
 ```
 
+## TODO
+
+Sugar for specific messages types.
+
 ## License
 
 Copyright (c) 2013 Aaron Forsander

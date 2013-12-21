@@ -85,6 +85,14 @@ console.log(message.toString());
 ##teamcity[testStarted name='my test' flowId='65345909446478' timestamp='2013-12-19T19:54:24.449Z']
 ```
 
+## Changelog
+
+* `0.1.0`
+ * Chainable API
+ * `Message` class moved to `Message` namespace.
+* `0.0.1`
+ * Initial release
+
 ## License
 
 Copyright (c) 2013 Aaron Forsander

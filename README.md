@@ -17,21 +17,72 @@ npm install teamcity-service-messages --save
 
 ## Usage
 
+### Chainable API
+
 ```javascript
+var tsm = require('teamcity-service-messages');
 
-var TCMessage = require('teamcity-service-messages');
+tsm.testStarted({ name: 'my test' }).testFinished({ name: "my test" });
 
-var message = new TCMessage('testStarted', {
+```
+
+##### Output:
+
+```
+##teamcity[testStarted name='my test' flowId='65345909446478' timestamp='2013-12-19T19:54:24.449Z']
+##teamcity[testFinished name='my test' flowId='65345909446478' timestamp='2013-12-19T19:54:24.449Z']
+```
+
+#### Methods
+
+[Full Documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity)
+
+* `blockOpened`/`blockClosed`
+* `message`
+* `compilationStarted`/`compilationFinished`
+* `testSuiteStarted`/`testSuiteFinished`
+* `testStarted`/`testFinished`
+* `testFailed`
+* `testIgnored`
+* `testStdOut`
+* `testStdErr`
+* `publishArtifacts`
+* `progressMessage`
+* `progressStart`/`progressFinish`
+* `buildStatus`
+* `buildNumber`
+* `setParameter`
+* `buildStatisticValue`
+* `enableServiceMessages`/`disableServiceMessages`
+* `importData`
+
+If you want the messages returned instead of printed to stdout, you can set `tsm.stdout = false`.
+The API will no longer be chainable, but instead, each method will return its generated message.
+
+```javascript
+var tsm = require('teamcity-service-messages');
+
+tsm.stdout = false;
+
+typeof tsm.message('test'); // string
+```
+
+### Low-level API
+
+```javascript
+var Message = require('teamcity-service-messages').Message;
+
+var message = new Message('testStarted', {
 	name: 'my test'
 });
 
 console.log(message.toString());
 ```
 
-Outputs:
+##### Output:
 
 ```
-##teamcity[testStarted name='my test' flowId='023565345909446478' timestamp='2013-12-19T19:54:24.449Z']
+##teamcity[testStarted name='my test' flowId='65345909446478' timestamp='2013-12-19T19:54:24.449Z']
 ```
 
 ## License

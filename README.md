@@ -22,8 +22,13 @@ npm install teamcity-service-messages --save
 ```javascript
 var tsm = require('teamcity-service-messages');
 
+// I doesn't really make sense that it's chainable. WHATEVER.
 tsm.testStarted({ name: 'my test' }).testFinished({ name: "my test" });
 
+// You'll more likely use it like this:
+tsm.message({ text: 'Finished step 1'});
+// Do some stuff.
+tsm.message({ text: 'Finished step 2'});
 ```
 
 ##### Output:

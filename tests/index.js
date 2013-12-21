@@ -62,7 +62,7 @@ exports.testEscape = function (test) {
 	test.done();
 };
 
-exports.testApi = function (test) {
+exports.testChainableApi = function (test) {
 	test.expect(3);
 
 	// Hijack console.log for this test.

@@ -1,6 +1,6 @@
-![build status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)
-
 # TeamCity Service Messages
+
+[![Build Status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)](https://travis-ci.org/pifantastic/teamcity-service-messages)
 
 From the [TeamCity documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity):
 

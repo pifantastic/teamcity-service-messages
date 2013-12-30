@@ -1,3 +1,5 @@
+![build status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)
+
 # TeamCity Service Messages
 
 From the [TeamCity documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity):

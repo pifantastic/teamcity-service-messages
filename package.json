@@ -10,6 +10,7 @@
     "teamcity"
   ],
   "author": "Aaron Forsander",
+  "repository": "https://github.com/pifantastic/teamcity-service-messages",
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.2",

@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)](https://travis-ci.org/pifantastic/teamcity-service-messages)
 
-From the [TeamCity documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity):
+From the [TeamCity documentation][tcd]:
 
 > If TeamCity doesn't support your testing framework or build runner out of the box, you
 > can still avail yourself of many TeamCity benefits by customizing your build scripts to
-> interact with the TeamCity |server. This makes a wide range of features available to any
+> interact with the TeamCity server. This makes a wide range of features available to any
 > team regardless of their testing frameworks and runners. Some of these features include
 > displaying real-time test results and customized statistics, changing the build status,
 > and publishing artifacts before the build is finished.
@@ -28,8 +28,8 @@ var tsm = require('teamcity-service-messages');
 tsm.testStarted({ name: 'my test' }).testFinished({ name: "my test" });
 
 // You'll more likely use it like this:
-
 tsm.message({ text: 'Finished step 1'});
+
 // Do some stuff.
 tsm.message({ text: 'Finished step 2'});
 ```
@@ -43,7 +43,7 @@ tsm.message({ text: 'Finished step 2'});
 
 #### Methods
 
-[Full Documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity)
+[Full Documentation][tcd]
 
 * `blockOpened`/`blockClosed`
 * `message`
@@ -122,3 +122,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+[tcd]: http://confluence.jetbrains.com/display/TCD8/Build+Script+Interaction+with+TeamCity

@@ -47,6 +47,7 @@ tsm.message({ text: 'Finished step 2'});
 
 * `blockOpened`/`blockClosed`
 * `buildNumber`
+* `buildProblem`
 * `buildStatisticValue`
 * `buildStatus`
 * `compilationStarted`/`compilationFinished`

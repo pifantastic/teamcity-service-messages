@@ -7,6 +7,7 @@ exports.stdout = true;
 	'blockClosed',
 	'blockOpened',
 	'buildNumber',
+	'buildProblem',
 	'buildStatisticValue',
 	'buildStatus',
 	'compilationFinished',

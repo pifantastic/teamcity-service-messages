@@ -46,23 +46,24 @@ tsm.message({ text: 'Finished step 2'});
 [Full Documentation](http://confluence.jetbrains.com/display/TCD7/Build+Script+Interaction+with+TeamCity)
 
 * `blockOpened`/`blockClosed`
-* `message`
-* `compilationStarted`/`compilationFinished`
-* `testSuiteStarted`/`testSuiteFinished`
-* `testStarted`/`testFinished`
-* `testFailed`
-* `testIgnored`
-* `testStdOut`
-* `testStdErr`
-* `publishArtifacts`
-* `progressMessage`
-* `progressStart`/`progressFinish`
-* `buildStatus`
 * `buildNumber`
-* `setParameter`
+* `buildProblem`
 * `buildStatisticValue`
+* `buildStatus`
+* `compilationStarted`/`compilationFinished`
 * `enableServiceMessages`/`disableServiceMessages`
 * `importData`
+* `message`
+* `progressMessage`
+* `progressStart`/`progressFinish`
+* `publishArtifacts`
+* `setParameter`
+* `testFinished`
+* `testIgnored`
+* `testStarted`/`testFailed`
+* `testStdErr`
+* `testStdOut`
+* `testSuiteStarted`/`testSuiteFinished`
 
 If you want the messages returned instead of printed to stdout, you can set `tsm.stdout = false`.
 The API will no longer be chainable, but instead, each method will return its generated message.

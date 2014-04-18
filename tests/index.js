@@ -63,7 +63,7 @@ exports.testEscape = function (test) {
 };
 
 exports.testChainableApi = function (test) {
-	test.expect(3);
+	test.expect(4);
 
 	// Hijack console.log for this test.
 	var logged = '', oldConsoleLog = console.log;
@@ -79,7 +79,27 @@ exports.testChainableApi = function (test) {
 
 	test.strictEqual(tsm.message(), tsm, "Should be chainable");
 
+	tsm.message(3.14)
+	test.ok(~logged.indexOf("##teamcity[message '3.14']"), "Chainable API should handle single attribute messages with numbers");
+
 	console.log = oldConsoleLog;
+
+	test.done();
+};
+
+exports.testSingleAttribute = function (test) {
+	test.expect(3);
+
+	var message = new Message("test", "value");
+	test.ok(~message.toString().indexOf("##teamcity[test 'value']"), "Constructor should handle single attribute messages with strings");
+
+	message = new Message("test", 123);
+	test.ok(~message.toString().indexOf("##teamcity[test '123']"), "Constructor should handle single attribute messages with numbers");
+
+	message = new Message("test", 123);
+	test.throws(function () {
+		message.arg('foo', 'bar');
+	}, "Adding an arg to a single message should throw an error");
 
 	test.done();
 };

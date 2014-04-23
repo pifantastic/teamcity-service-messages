@@ -96,11 +96,22 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.4`
+	* Correct padding for encoded unicode characters
+* `0.1.3`
+	* Support for single attribute messages
+	* Added `buildProblem` method
+	* Minimized npm package via `.npmignore`
+	* Documentation improvements
+* `0.1.2`
+	* Fix bug where `timestamp` couldn't be overwritten when creating a `Message`
+* `0.1.1`
+	* Moved `nodeunit` to `devDependencies`
 * `0.1.0`
- * Chainable API
- * `Message` class moved to `Message` namespace.
+	* Chainable API
+	* `Message` class moved to `Message` namespace.
 * `0.0.1`
- * Initial release
+	* Initial release
 
 ## License
 

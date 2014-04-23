@@ -47,7 +47,7 @@ exports.testFlowId = function (test) {
 };
 
 exports.testEscape = function (test) {
-	test.expect(7);
+	test.expect(9);
 
 	var escape = Message.prototype.escape;
 
@@ -57,6 +57,8 @@ exports.testEscape = function (test) {
 	test.equal(escape("\r"), "|r", "Should escape carriage returns");
 	test.equal(escape("[]"), "|[|]", "Should escape brackets");
 	test.equal(escape("✓"), "|0x2713", "Should escape unicode characters");
+	test.equal(escape("\u0100"), "|0x0100", "Should correctly pad unicode characters");
+	test.equal(escape("я"), "|0x044f", "Should escape russian characters");
 	test.equal(escape("'|\n\r[]✓"), "|'|||n|r|[|]|0x2713", "Should escape all special characters");
 
 	test.done();
@@ -79,7 +81,7 @@ exports.testChainableApi = function (test) {
 
 	test.strictEqual(tsm.message(), tsm, "Should be chainable");
 
-	tsm.message(3.14)
+	tsm.message(3.14);
 	test.ok(~logged.indexOf("##teamcity[message '3.14']"), "Chainable API should handle single attribute messages with numbers");
 
 	console.log = oldConsoleLog;

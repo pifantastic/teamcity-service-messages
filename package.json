@@ -1,6 +1,6 @@
 {
   "name": "teamcity-service-messages",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Generate TeamCity service messages.",
   "main": "index.js",
   "scripts": {

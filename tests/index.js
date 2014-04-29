@@ -16,11 +16,12 @@ exports.testConstructor = function (test) {
 };
 
 exports.testDefaults = function (test) {
-	test.expect(2);
+	test.expect(3);
 
-	var message = new Message("test");
-	test.ok(~message.toString().indexOf("timestamp='"), "Message should have a timestamp");
-	test.ok(~message.toString().indexOf("flowId='"), "Message should have a flowId");
+	var message = new Message("test").toString();
+	test.ok(~message.indexOf("timestamp='"), "Message should have a timestamp");
+	test.ok(/timestamp='[-T.:\d]+'/.test(message), "Message should not have 'Z' in timestamp");
+	test.ok(~message.indexOf("flowId='"), "Message should have a flowId");
 
 	test.done();
 };

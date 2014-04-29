@@ -96,17 +96,20 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.5`
+	* [#10](https://github.com/pifantastic/teamcity-service-messages/pull/10): Fixed timestamp format: removed 'Z' at the end
 * `0.1.4`
-	* Correct padding for encoded unicode characters
+	* [#9](https://github.com/pifantastic/teamcity-service-messages/pull/9): Correct unicode padding
 * `0.1.3`
-	* Support for single attribute messages
-	* Added `buildProblem` method
-	* Minimized npm package via `.npmignore`
-	* Documentation improvements
+	* [#7](https://github.com/pifantastic/teamcity-service-messages/issues/7): Single attribute messages
+	* [#5](https://github.com/pifantastic/teamcity-service-messages/pull/5): Added `buildProblem` method
+	* [#6](https://github.com/pifantastic/teamcity-service-messages/pull/6): Minimized npm package via `.npmignore`
+	* [#4](https://github.com/pifantastic/teamcity-service-messages/pull/4): Updating documentation links to TC8, fixing codestyle
 * `0.1.2`
-	* Fix bug where `timestamp` couldn't be overwritten when creating a `Message`
+	* [#3](https://github.com/pifantastic/teamcity-service-messages/pull/3): Allow timestamp to be overridden.
 * `0.1.1`
-	* Moved `nodeunit` to `devDependencies`
+	* [#2](https://github.com/pifantastic/teamcity-service-messages/pull/2): Moved `nodeunit` to `devDependencies`
+	* [#1](https://github.com/pifantastic/teamcity-service-messages/pull/1): Mention repository in package.json
 * `0.1.0`
 	* Chainable API
 	* `Message` class moved to `Message` namespace.

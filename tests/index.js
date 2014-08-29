@@ -27,7 +27,7 @@ exports.testDefaults = function (test) {
 };
 
 exports.testFlowId = function (test) {
-	test.expect(5);
+	test.expect(6);
 
 	var now = new Date();
 	var message1 = new Message("test", { timestamp: now.toISOString() });
@@ -43,6 +43,11 @@ exports.testFlowId = function (test) {
 	message = new Message("test");
 	message.arg("flowId", "flow");
 	test.ok(~message.toString().indexOf("flowId='flow'"), "flowId can be overridden");
+
+	tsm.autoFlowId = false;
+
+	message = new Message("test", { timestamp: now.toISOString() });
+	test.ok(message.toString().indexOf("flowId=") === -1, "flowIds can be globally disabled")
 
 	test.done();
 };

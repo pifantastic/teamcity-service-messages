@@ -2,6 +2,7 @@
 var Message = exports.Message = require('./lib/message');
 
 exports.stdout = true;
+exports.autoFlowId = true;
 
 [
 	'blockClosed',

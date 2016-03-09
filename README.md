@@ -96,6 +96,10 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.7`
+  * [#13](https://github.com/pifantastic/teamcity-service-messages/pull/13): `escape` now returns '' for `undefined`
+* `0.1.6`
+  * [#12](https://github.com/pifantastic/teamcity-service-messages/pull/12): Added global option to disable automatic flow ids
 * `0.1.5`
 	* [#10](https://github.com/pifantastic/teamcity-service-messages/pull/10): Fixed timestamp format: removed 'Z' at the end
 * `0.1.4`

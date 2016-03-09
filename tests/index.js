@@ -53,10 +53,11 @@ exports.testFlowId = function (test) {
 };
 
 exports.testEscape = function (test) {
-	test.expect(9);
+	test.expect(10);
 
 	var escape = Message.prototype.escape;
 
+	test.equal(escape(), "", "Should handle 'undefined' input");
 	test.equal(escape("'"), "|'", "Should escape single quotes");
 	test.equal(escape("|"), "||", "Should escape pipes");
 	test.equal(escape("\n"), "|n", "Should escape newlines");

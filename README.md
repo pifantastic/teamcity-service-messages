@@ -96,6 +96,8 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.8`
+  * [#15](https://github.com/pifantastic/teamcity-service-messages/pull/15): Escape only characters specified in teamcity docs
 * `0.1.7`
   * [#13](https://github.com/pifantastic/teamcity-service-messages/pull/13): `escape` now returns '' for `undefined`
 * `0.1.6`

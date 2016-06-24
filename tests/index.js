@@ -53,7 +53,7 @@ exports.testFlowId = function (test) {
 };
 
 exports.testEscape = function (test) {
-	test.expect(10);
+	test.expect(9);
 
 	var escape = Message.prototype.escape;
 
@@ -63,10 +63,9 @@ exports.testEscape = function (test) {
 	test.equal(escape("\n"), "|n", "Should escape newlines");
 	test.equal(escape("\r"), "|r", "Should escape carriage returns");
 	test.equal(escape("[]"), "|[|]", "Should escape brackets");
-	test.equal(escape("✓"), "|0x2713", "Should escape unicode characters");
-	test.equal(escape("\u0100"), "|0x0100", "Should correctly pad unicode characters");
-	test.equal(escape("я"), "|0x044f", "Should escape russian characters");
-	test.equal(escape("'|\n\r[]✓"), "|'|||n|r|[|]|0x2713", "Should escape all special characters");
+	test.equal(escape("\u0085"), "|x", "Should escape next line");
+	test.equal(escape("\u2028"), "|l", "Should escape line separator");
+	test.equal(escape("\u2029"), "|p", "Should escape paragraph separator");
 
 	test.done();
 };
@@ -112,4 +111,3 @@ exports.testSingleAttribute = function (test) {
 
 	test.done();
 };
-

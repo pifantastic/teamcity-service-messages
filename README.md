@@ -53,6 +53,8 @@ tsm.message({ text: 'Finished step 2'});
 * `compilationStarted`/`compilationFinished`
 * `enableServiceMessages`/`disableServiceMessages`
 * `importData`
+* `inspection`
+* `inspectionType`
 * `message`
 * `progressMessage`
 * `progressStart`/`progressFinish`
@@ -96,6 +98,8 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.9`
+  * [#16](https://github.com/pifantastic/teamcity-service-messages/pull/16): Export inspectionType and inspection functions
 * `0.1.8`
   * [#15](https://github.com/pifantastic/teamcity-service-messages/pull/15): Escape only characters specified in teamcity docs
 * `0.1.7`

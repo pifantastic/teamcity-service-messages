@@ -16,6 +16,8 @@ exports.autoFlowId = true;
 	'disableServiceMessages',
 	'enableServiceMessages',
 	'importData',
+	'inspectionType',
+	'inspection',
 	'message',
 	'progressFinish',
 	'progressMessage',

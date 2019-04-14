@@ -27,6 +27,7 @@ exports.autoFlowId = true;
 	'testFailed',
 	'testFinished',
 	'testIgnored',
+	'testMetadata',
 	'testStarted',
 	'testStdErr',
 	'testStdOut',

@@ -62,6 +62,7 @@ tsm.message({ text: 'Finished step 2'});
 * `setParameter`
 * `testFinished`
 * `testIgnored`
+* `testMetadata`
 * `testStarted`/`testFailed`
 * `testStdErr`
 * `testStdOut`

@@ -98,6 +98,8 @@ console.log(message.toString());
 
 ## Changelog
 
+* `0.1.10`
+  * [#17](https://github.com/pifantastic/teamcity-service-messages/pull/17): Add testMetadata method
 * `0.1.9`
   * [#16](https://github.com/pifantastic/teamcity-service-messages/pull/16): Export inspectionType and inspection functions
 * `0.1.8`

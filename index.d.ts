@@ -1,41 +1,18 @@
-import Message, { MessageBaseArgs } from './lib/message'
-
-export { Message }
-
-export var stdout: boolean;
-
-export var autoFlowId: boolean;
+import { MessageBaseArgs } from './lib/message'
 
 interface IBlockMessageArgs extends MessageBaseArgs {
   name: string;
   description?: string;
 }
 
-export function blockOpened(args: IBlockMessageArgs): void;
-export function blockClosed(args: IBlockMessageArgs): void;
-
-export function buildNumber(value: string): void;
-export function buildProblem(args: MessageBaseArgs): void;
-
 interface IBuildStatisticValueArgs extends MessageBaseArgs {
   key: string;
   value: number;
 }
 
-export function buildStatisticValue(args: IBuildStatisticValueArgs): void;
-export function buildStatus(args: MessageBaseArgs): void;
-
 interface ICompilationMessageArgs extends MessageBaseArgs {
   compiler: string;
 }
-
-export function compilationStarted(args: ICompilationMessageArgs): void;
-export function compilationFinished(args: ICompilationMessageArgs): void;
-
-export function enableServiceMessages(): void;
-export function disableServiceMessages(): void;
-
-export function importData(args: MessageBaseArgs): void;
 
 interface IInspectionTypeArgs extends MessageBaseArgs {
   id: string;
@@ -43,8 +20,6 @@ interface IInspectionTypeArgs extends MessageBaseArgs {
   category: string;
   description: string;
 }
-
-export function inspectionType(args: IInspectionTypeArgs): void;
 
 interface IInspectionArgs extends MessageBaseArgs {
   typeId: string;
@@ -54,38 +29,62 @@ interface IInspectionArgs extends MessageBaseArgs {
   SEVERITY?: 'INFO' | 'ERROR' | 'WARNING' | 'WEAK WARNING';
 }
 
-export function inspection(args: IInspectionArgs): void;
-
 interface IMessageArgs extends MessageBaseArgs {
   text: string;
   status?: 'NORMAL' | 'WARNING' | 'FAILURE' | 'ERROR';
   errorDetails?: string;
 }
 
-export function message(args: IMessageArgs): void;
-
-export function progressMessage(message: string): void;
-export function progressStart(message: string): void;
-export function progressFinish(message: string): void;
-export function publishArtifacts(path: string): void;
-
 interface ISetParameterArgs extends MessageBaseArgs {
   name: string;
   value: any;
 }
 
-export function setParameter(args: ISetParameterArgs): void;
-
 interface ITestMessageArgs extends MessageBaseArgs {
   name: string;
 }
 
-export function testFinished(args: ITestMessageArgs): void;
-export function testIgnored(args: ITestMessageArgs): void;
-export function testMetadata(args: ITestMessageArgs): void;
-export function testStarted(args: ITestMessageArgs): void;
-export function testFailed(args: ITestMessageArgs): void;
-export function testStdErr(args: ITestMessageArgs): void;
-export function testStdOut(args: ITestMessageArgs): void;
-export function testSuiteStarted(args: ITestMessageArgs): void;
-export function testSuiteFinished(args: ITestMessageArgs): void;
+interface TSM {
+  stdout: boolean;
+  autoFlowId: boolean;
+
+  blockOpened(args: IBlockMessageArgs): this;
+  blockClosed(args: IBlockMessageArgs): this;
+
+  buildNumber(value: string): this;
+  buildProblem(args: MessageBaseArgs): this;
+  buildStatisticValue(args: IBuildStatisticValueArgs): this;
+  buildStatus(args: MessageBaseArgs): this;
+
+  compilationStarted(args: ICompilationMessageArgs): this;
+  compilationFinished(args: ICompilationMessageArgs): this;
+
+  enableServiceMessages(): this;
+  disableServiceMessages(): this;
+
+  inspectionType(args: IInspectionTypeArgs): this;
+  inspection(args: IInspectionArgs): this;
+
+  message(args: IMessageArgs): this;
+
+  progressMessage(message: string): this;
+  progressStart(message: string): this;
+  progressFinish(message: string): this;
+
+  importData(args: MessageBaseArgs): this;
+  publishArtifacts(path: string): this;
+  setParameter(args: ISetParameterArgs): this;
+
+  testFinished(args: ITestMessageArgs): this;
+  testIgnored(args: ITestMessageArgs): this;
+  testMetadata(args: ITestMessageArgs): this;
+  testStarted(args: ITestMessageArgs): this;
+  testFailed(args: ITestMessageArgs): this;
+  testStdErr(args: ITestMessageArgs): this;
+  testStdOut(args: ITestMessageArgs): this;
+  testSuiteStarted(args: ITestMessageArgs): this;
+  testSuiteFinished(args: ITestMessageArgs): this;
+}
+
+declare const tsm: TSM;
+export = tsm;

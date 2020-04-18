@@ -22,16 +22,16 @@ npm install teamcity-service-messages --save
 ### Chainable API
 
 ```javascript
-var tsm = require('teamcity-service-messages');
+var tsm = require("teamcity-service-messages");
 
 // It doesn't really make sense that it's chainable. WHATEVER.
-tsm.testStarted({ name: 'my test' }).testFinished({ name: "my test" });
+tsm.testStarted({ name: "my test" }).testFinished({ name: "my test" });
 
 // You'll more likely use it like this:
-tsm.message({ text: 'Finished step 1'});
+tsm.message({ text: "Finished step 1" });
 
 // Do some stuff.
-tsm.message({ text: 'Finished step 2'});
+tsm.message({ text: "Finished step 2" });
 ```
 
 ##### Output:
@@ -45,47 +45,47 @@ tsm.message({ text: 'Finished step 2'});
 
 [Full Documentation][tcd]
 
-* `blockOpened`/`blockClosed`
-* `buildNumber`
-* `buildProblem`
-* `buildStatisticValue`
-* `buildStatus`
-* `compilationStarted`/`compilationFinished`
-* `enableServiceMessages`/`disableServiceMessages`
-* `importData`
-* `inspection`
-* `inspectionType`
-* `message`
-* `progressMessage`
-* `progressStart`/`progressFinish`
-* `publishArtifacts`
-* `setParameter`
-* `testFinished`
-* `testIgnored`
-* `testMetadata`
-* `testStarted`/`testFailed`
-* `testStdErr`
-* `testStdOut`
-* `testSuiteStarted`/`testSuiteFinished`
+- `blockOpened`/`blockClosed`
+- `buildNumber`
+- `buildProblem`
+- `buildStatisticValue`
+- `buildStatus`
+- `compilationStarted`/`compilationFinished`
+- `enableServiceMessages`/`disableServiceMessages`
+- `importData`
+- `inspection`
+- `inspectionType`
+- `message`
+- `progressMessage`
+- `progressStart`/`progressFinish`
+- `publishArtifacts`
+- `setParameter`
+- `testFinished`
+- `testIgnored`
+- `testMetadata`
+- `testStarted`/`testFailed`
+- `testStdErr`
+- `testStdOut`
+- `testSuiteStarted`/`testSuiteFinished`
 
 If you want the messages returned instead of printed to stdout, you can set `tsm.stdout = false`.
 The API will no longer be chainable, but instead, each method will return its generated message.
 
 ```javascript
-var tsm = require('teamcity-service-messages');
+var tsm = require("teamcity-service-messages");
 
 tsm.stdout = false;
 
-typeof tsm.message('test'); // string
+typeof tsm.message("test"); // string
 ```
 
 ### Low-level API
 
 ```javascript
-var Message = require('teamcity-service-messages').Message;
+var Message = require("teamcity-service-messages").Message;
 
-var message = new Message('testStarted', {
-	name: 'my test'
+var message = new Message("testStarted", {
+  name: "my test",
 });
 
 console.log(message.toString());
@@ -99,35 +99,37 @@ console.log(message.toString());
 
 ## Changelog
 
-* `0.1.10`
-  * [#17](https://github.com/pifantastic/teamcity-service-messages/pull/17): Add testMetadata method
-* `0.1.9`
-  * [#16](https://github.com/pifantastic/teamcity-service-messages/pull/16): Export inspectionType and inspection functions
-* `0.1.8`
-  * [#15](https://github.com/pifantastic/teamcity-service-messages/pull/15): Escape only characters specified in teamcity docs
-* `0.1.7`
-  * [#13](https://github.com/pifantastic/teamcity-service-messages/pull/13): `escape` now returns '' for `undefined`
-* `0.1.6`
-  * [#12](https://github.com/pifantastic/teamcity-service-messages/pull/12): Added global option to disable automatic flow ids
-* `0.1.5`
-	* [#10](https://github.com/pifantastic/teamcity-service-messages/pull/10): Fixed timestamp format: removed 'Z' at the end
-* `0.1.4`
-	* [#9](https://github.com/pifantastic/teamcity-service-messages/pull/9): Correct unicode padding
-* `0.1.3`
-	* [#7](https://github.com/pifantastic/teamcity-service-messages/issues/7): Single attribute messages
-	* [#5](https://github.com/pifantastic/teamcity-service-messages/pull/5): Added `buildProblem` method
-	* [#6](https://github.com/pifantastic/teamcity-service-messages/pull/6): Minimized npm package via `.npmignore`
-	* [#4](https://github.com/pifantastic/teamcity-service-messages/pull/4): Updating documentation links to TC8, fixing codestyle
-* `0.1.2`
-	* [#3](https://github.com/pifantastic/teamcity-service-messages/pull/3): Allow timestamp to be overridden.
-* `0.1.1`
-	* [#2](https://github.com/pifantastic/teamcity-service-messages/pull/2): Moved `nodeunit` to `devDependencies`
-	* [#1](https://github.com/pifantastic/teamcity-service-messages/pull/1): Mention repository in package.json
-* `0.1.0`
-	* Chainable API
-	* `Message` class moved to `Message` namespace.
-* `0.0.1`
-	* Initial release
+- `0.1.11`
+  - [#20](https://github.com/pifantastic/teamcity-service-messages/pull/20): Fix reporting 0 as empty string
+- `0.1.10`
+  - [#17](https://github.com/pifantastic/teamcity-service-messages/pull/17): Add testMetadata method
+- `0.1.9`
+  - [#16](https://github.com/pifantastic/teamcity-service-messages/pull/16): Export inspectionType and inspection functions
+- `0.1.8`
+  - [#15](https://github.com/pifantastic/teamcity-service-messages/pull/15): Escape only characters specified in teamcity docs
+- `0.1.7`
+  - [#13](https://github.com/pifantastic/teamcity-service-messages/pull/13): `escape` now returns '' for `undefined`
+- `0.1.6`
+  - [#12](https://github.com/pifantastic/teamcity-service-messages/pull/12): Added global option to disable automatic flow ids
+- `0.1.5`
+  - [#10](https://github.com/pifantastic/teamcity-service-messages/pull/10): Fixed timestamp format: removed 'Z' at the end
+- `0.1.4`
+  - [#9](https://github.com/pifantastic/teamcity-service-messages/pull/9): Correct unicode padding
+- `0.1.3`
+  - [#7](https://github.com/pifantastic/teamcity-service-messages/issues/7): Single attribute messages
+  - [#5](https://github.com/pifantastic/teamcity-service-messages/pull/5): Added `buildProblem` method
+  - [#6](https://github.com/pifantastic/teamcity-service-messages/pull/6): Minimized npm package via `.npmignore`
+  - [#4](https://github.com/pifantastic/teamcity-service-messages/pull/4): Updating documentation links to TC8, fixing codestyle
+- `0.1.2`
+  - [#3](https://github.com/pifantastic/teamcity-service-messages/pull/3): Allow timestamp to be overridden.
+- `0.1.1`
+  - [#2](https://github.com/pifantastic/teamcity-service-messages/pull/2): Moved `nodeunit` to `devDependencies`
+  - [#1](https://github.com/pifantastic/teamcity-service-messages/pull/1): Mention repository in package.json
+- `0.1.0`
+  - Chainable API
+  - `Message` class moved to `Message` namespace.
+- `0.0.1`
+  - Initial release
 
 ## License
 

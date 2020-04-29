@@ -153,4 +153,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-[tcd]: http://confluence.jetbrains.com/display/TCD8/Build+Script+Interaction+with+TeamCity
+[tcd]: https://www.jetbrains.com/help/teamcity/build-script-interaction-with-teamcity.html

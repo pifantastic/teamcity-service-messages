@@ -4,7 +4,7 @@
   "description": "Generate TeamCity service messages.",
   "main": "index.js",
   "scripts": {
-    "test": "nodeunit tests"
+    "test": "tsc && nodeunit tests"
   },
   "keywords": [
     "teamcity"
@@ -16,6 +16,7 @@
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.2.2",
-    "nodeunit": "~0.8.2"
+    "nodeunit": "~0.8.2",
+    "typescript": "^4.4.2"
   }
 }

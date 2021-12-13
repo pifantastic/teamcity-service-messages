@@ -99,6 +99,8 @@ console.log(message.toString());
 
 ## Changelog
 
+- `0.1.12`
+  - [#22](https://github.com/pifantastic/teamcity-service-messages/pull/22): Add TypeScript type definitions
 - `0.1.11`
   - [#20](https://github.com/pifantastic/teamcity-service-messages/pull/20): Fix reporting 0 as empty string
 - `0.1.10`

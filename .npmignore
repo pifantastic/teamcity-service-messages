@@ -1,7 +1,5 @@
 .npmignore
 .travis.yml
-Gruntfile.js
-tasks/
 tests/
 
 .idea

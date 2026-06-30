@@ -15,10 +15,6 @@ declare namespace tsm {
         description?: string
     }
 
-    export interface BlockClosedArgs extends Args {
-        name: string
-    }
-
     export interface BlockOpenedArgs extends Args {
         name: string
         description?: string
@@ -35,7 +31,7 @@ declare namespace tsm {
     }
 
     export interface BuildStatusArgs extends Args {
-        status?: 'SUCCESS'
+        status?: 'SUCCESS' | 'FAILURE'
         text: string
     }
 

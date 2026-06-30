@@ -1,5 +1,5 @@
 
-var Message = exports.Message = require('./lib/message');
+const Message = exports.Message = require('./lib/message');
 
 exports.stdout = true;
 exports.autoFlowId = true;
@@ -36,7 +36,7 @@ exports.autoFlowId = true;
 ]
 .forEach(function (message) {
 	exports[message] = function (args) {
-		var output = new Message(message, args).toString();
+		const output = new Message(message, args).toString();
 		if (exports.stdout) {
 			console.log(output);
 			return exports;

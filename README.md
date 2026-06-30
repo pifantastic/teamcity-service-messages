@@ -1,6 +1,6 @@
 # TeamCity Service Messages
 
-[![Build Status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)](https://travis-ci.org/pifantastic/teamcity-service-messages)
+[![CI](https://github.com/pifantastic/teamcity-service-messages/actions/workflows/ci.yml/badge.svg)](https://github.com/pifantastic/teamcity-service-messages/actions/workflows/ci.yml)
 
 From the [TeamCity documentation][tcd]:
 

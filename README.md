@@ -1,5 +1,7 @@
 # TeamCity Service Messages
 
+[![CI](https://github.com/pifantastic/teamcity-service-messages/actions/workflows/ci.yml/badge.svg)](https://github.com/pifantastic/teamcity-service-messages/actions/workflows/ci.yml)
+
 From the [TeamCity documentation][tcd]:
 
 > If TeamCity doesn't support your testing framework or build runner out of the box, you

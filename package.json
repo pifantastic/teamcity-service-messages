@@ -3,6 +3,11 @@
   "version": "0.1.14",
   "description": "Generate TeamCity service messages.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib/"
+  ],
   "scripts": {
     "test": "tsc && mocha tests"
   },

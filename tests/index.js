@@ -1,7 +1,7 @@
 
 var assert = require("assert");
 
-var tsm = require("../index");
+var tsm = require("../dist");
 var Message = tsm.Message;
 
 describe("teamcity-service-messages", function () {

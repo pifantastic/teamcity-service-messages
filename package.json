@@ -2,18 +2,18 @@
   "name": "teamcity-service-messages",
   "version": "0.1.14",
   "description": "Generate TeamCity service messages.",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts",
-    "lib/"
+    "dist"
   ],
   "engines": {
     "node": ">=14"
   },
   "scripts": {
-    "test": "tsc && mocha tests"
+    "build": "tsc",
+    "test": "tsc && mocha tests",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "teamcity"

@@ -90,4 +90,89 @@ describe("teamcity-service-messages", function () {
 			message.arg('foo', 'bar');
 		}, "Adding an arg to a single message should throw an error");
 	});
+
+	it("testAllMethods", function () {
+		// Representative args for every public method. Guards the method list
+		// and each method's emitted message type (every method is now hand
+		// written rather than generated from a list).
+		var cases = {
+			blockOpened: { name: "b", description: "d" },
+			blockClosed: { name: "b" },
+			buildNumber: "1.2.3",
+			buildProblem: { description: "oops" },
+			buildStatisticValue: { key: "k", value: 1 },
+			buildStatus: { text: "t" },
+			compilationStarted: { compiler: "c" },
+			compilationFinished: { compiler: "c" },
+			disableServiceMessages: undefined,
+			enableServiceMessages: undefined,
+			importData: { type: "junit", path: "/p" },
+			inspectionType: { id: "i", name: "n", category: "c", description: "d" },
+			inspection: { typeId: "t", file: "f" },
+			message: { text: "m" },
+			progressStart: "starting",
+			progressMessage: "going",
+			progressFinish: "done",
+			publishArtifacts: "dist/**",
+			setParameter: { name: "p", value: "v" },
+			testFailed: { name: "t" },
+			testFinished: { name: "t" },
+			testIgnored: { name: "t" },
+			testMetadata: { name: "t" },
+			testStarted: { name: "t" },
+			testStdErr: { name: "t", out: "e" },
+			testStdOut: { name: "t", out: "o" },
+			testSuiteStarted: { name: "s" },
+			testSuiteFinished: { name: "s" }
+		};
+
+		var previous = tsm.stdout;
+		tsm.stdout = false;
+		try {
+			Object.keys(cases).forEach(function (name) {
+				assert.equal(typeof tsm[name], "function", name + " should be a method");
+				var arg = cases[name];
+				var output = arg === undefined ? tsm[name]() : tsm[name](arg);
+				assert.equal(
+					output.indexOf("##teamcity[" + name + " "), 0,
+					name + " should emit a '" + name + "' service message, got: " + output
+				);
+			});
+		} finally {
+			tsm.stdout = previous;
+		}
+	});
+
+	it("testStdoutDisabled", function () {
+		var previous = tsm.stdout;
+		tsm.stdout = false;
+		try {
+			var result = tsm.message({ text: "x" });
+			assert.equal(typeof result, "string", "With stdout disabled methods return the message string");
+			assert.ok(~result.indexOf("##teamcity[message "), "Returned value should be the service message");
+		} finally {
+			tsm.stdout = previous;
+		}
+	});
+
+	it("testFalsyValues", function () {
+		// Regression guard for #20 ("Fix reporting 0 as empty string").
+		var zero = new Message("buildStatisticValue", { key: "k", value: 0 }).toString();
+		assert.ok(~zero.indexOf("value='0'"), "Zero should render as '0', not empty, got: " + zero);
+
+		var bool = new Message("test", { flag: false }).toString();
+		assert.ok(~bool.indexOf("flag='false'"), "false should render as 'false', got: " + bool);
+	});
+
+	it("testTimestampOverride", function () {
+		var ts = "2020-01-02T03:04:05.678";
+		var message = new Message("test", { timestamp: ts }).toString();
+		assert.ok(~message.indexOf("timestamp='" + ts + "'"), "Provided timestamp should be used verbatim, got: " + message);
+	});
+
+	it("testEscapingInOutput", function () {
+		// Values (not just the escape() helper) should be escaped in real output.
+		var message = new Message("test", { key: "a'b|c" }).toString();
+		assert.ok(~message.indexOf("key='a|'b||c'"), "Arg values should be escaped in output, got: " + message);
+	});
 });

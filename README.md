@@ -99,6 +99,12 @@ console.log(message.toString());
 
 ## Changelog
 
+- `0.2.0`
+  - Rewrote the library in TypeScript; type definitions are now generated from the source
+  - Replaced the deprecated `nodeunit` test runner with `mocha` and upgraded TypeScript, resolving all dependency advisories
+  - Publish only the compiled `dist/` output via a `files` allowlist
+  - Removed the dead Travis config in favor of GitHub Actions CI
+  - Requires Node.js >= 14
 - `0.1.12`
   - [#22](https://github.com/pifantastic/teamcity-service-messages/pull/22): Add TypeScript type definitions
 - `0.1.11`

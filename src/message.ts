@@ -13,20 +13,20 @@ export class Message {
 
 	type: string;
 	single: boolean;
-	args: Args | string | number;
+	args: Record<string, unknown> | string | number;
 
-	constructor(type: string, args?: Args | string | number) {
+	constructor(type: string, args?: unknown) {
 		this.type = type;
 		this.single = false;
 
 		// Message is a 'multiple attribute message'.
 		if (typeof args === 'object' || typeof args === 'undefined') {
-			this.args = args || {};
+			this.args = (args as Record<string, unknown>) || {};
 		}
 		// Message is a 'single attribute message'.
 		else {
 			this.single = true;
-			this.args = args;
+			this.args = args as string | number;
 		}
 
 		if (!this.single) {

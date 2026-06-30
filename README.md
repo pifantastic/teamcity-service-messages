@@ -1,7 +1,5 @@
 # TeamCity Service Messages
 
-[![Build Status](https://travis-ci.org/pifantastic/teamcity-service-messages.png)](https://travis-ci.org/pifantastic/teamcity-service-messages)
-
 From the [TeamCity documentation][tcd]:
 
 > If TeamCity doesn't support your testing framework or build runner out of the box, you
